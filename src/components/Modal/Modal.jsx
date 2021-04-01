@@ -3,7 +3,19 @@ import styles from './Modal.module.css'
 import {createPortal} from 'react-dom'
 const modalRoot = document.querySelector('#modal-root')
 class Modal extends React.Component {
+
+
     
+    componentDidMount() {
+        window.addEventListener('keydown', this.props.onKeyDawn)
+      }
+    
+      componentWillUnmount() {
+        window.removeEventListener('keydown', this.props.onKeyDawn)
+      }
+
+
+      
 
     render() {
         return (

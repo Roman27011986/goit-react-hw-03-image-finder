@@ -20,13 +20,7 @@ class App extends React.Component {
 
   }
 
-  componentDidMount() {
-    window.addEventListener('keydown', this.handleKeyDawn)
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('keydown', this.handleKeyDawn)
-  }
+  
 
   componentDidUpdate(prevProps,prevState) {
     if (prevState.serchQuery !== this.state.serchQuery) {
@@ -91,7 +85,11 @@ class App extends React.Component {
         <ImageGallery getlargeImageURL={this.getModalImg } hits={this.state.hits} />
         {this.state.hits.length > 0 && !this.state.isLoading && <Button onLoadMore={this.fetchHits} />}
         {this.state.isLoading && <PreLoader />}
-        {this.state.largeImageURL && < Modal onModalImg={this.state.largeImageURL} onBackDrop={this.handleBackDrop}/>}
+        {this.state.largeImageURL && < Modal
+          onModalImg={this.state.largeImageURL}
+          onKeyDawn={this.handleKeyDawn}
+          onBackDrop={this.handleBackDrop}
+        />}
       </div>
     );
 
