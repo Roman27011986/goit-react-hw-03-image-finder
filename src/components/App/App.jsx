@@ -63,11 +63,11 @@ class App extends React.Component {
   }
 
   handleKeyDawn = (event) => {
-    window.addEventListener('keydown', event => {
+    
       if (event.code === 'Escape') {
         this.setState({ largeImageURL: ''})
       }
-    })
+    
   }
 
   handleBackDrop = (event) => {
